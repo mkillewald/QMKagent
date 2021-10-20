@@ -7,19 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D7B5CD4271F74FF00414DA7 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CD3271F74FF00414DA7 /* EventMonitor.swift */; };
+		4D7B5CD6271F7F0200414DA7 /* QMKDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CD5271F7F0200414DA7 /* QMKDevice.swift */; };
+		4D7B5CD8271F8DC300414DA7 /* MediaApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5CD7271F8DC300414DA7 /* MediaApplication.swift */; };
 		4D9AB8C1271E5C0600B21BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9AB8C0271E5C0600B21BE7 /* AppDelegate.swift */; };
 		4D9AB8C3271E5C0600B21BE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9AB8C2271E5C0600B21BE7 /* ViewController.swift */; };
-		4D9AB8C5271E5C0700B21BE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9AB8C4271E5C0700B21BE7 /* Assets.xcassets */; };
 		4D9AB8C8271E5C0700B21BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D9AB8C6271E5C0700B21BE7 /* Main.storyboard */; };
+		4D9AB8D3271E5C6100B21BE7 /* USBDeviceSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9AB8D2271E5C6100B21BE7 /* USBDeviceSwift */; };
+		4D9AB8D5271E68CA00B21BE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D9AB8D4271E68CA00B21BE7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D7B5CD3271F74FF00414DA7 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		4D7B5CD5271F7F0200414DA7 /* QMKDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMKDevice.swift; sourceTree = "<group>"; };
+		4D7B5CD7271F8DC300414DA7 /* MediaApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaApplication.swift; sourceTree = "<group>"; };
 		4D9AB8BD271E5C0600B21BE7 /* QMKagent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QMKagent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9AB8C0271E5C0600B21BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D9AB8C2271E5C0600B21BE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4D9AB8C4271E5C0700B21BE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D9AB8C7271E5C0700B21BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D9AB8C9271E5C0700B21BE7 /* QMKagent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QMKagent.entitlements; sourceTree = "<group>"; };
+		4D9AB8D0271E5C4B00B21BE7 /* USBDeviceSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = USBDeviceSwift; path = ../USBDeviceSwift; sourceTree = "<group>"; };
+		4D9AB8D4271E68CA00B21BE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D9AB8D6271E6A4600B21BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9AB8D3271E5C6100B21BE7 /* USBDeviceSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,8 +46,10 @@
 		4D9AB8B4271E5C0600B21BE7 = {
 			isa = PBXGroup;
 			children = (
+				4D9AB8CF271E5C4B00B21BE7 /* Packages */,
 				4D9AB8BF271E5C0600B21BE7 /* QMKagent */,
 				4D9AB8BE271E5C0600B21BE7 /* Products */,
+				4D9AB8D1271E5C6100B21BE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +64,32 @@
 		4D9AB8BF271E5C0600B21BE7 /* QMKagent */ = {
 			isa = PBXGroup;
 			children = (
+				4D9AB8D6271E6A4600B21BE7 /* Info.plist */,
 				4D9AB8C0271E5C0600B21BE7 /* AppDelegate.swift */,
+				4D7B5CD7271F8DC300414DA7 /* MediaApplication.swift */,
 				4D9AB8C2271E5C0600B21BE7 /* ViewController.swift */,
-				4D9AB8C4271E5C0700B21BE7 /* Assets.xcassets */,
+				4D7B5CD3271F74FF00414DA7 /* EventMonitor.swift */,
+				4D7B5CD5271F7F0200414DA7 /* QMKDevice.swift */,
+				4D9AB8D4271E68CA00B21BE7 /* Assets.xcassets */,
 				4D9AB8C6271E5C0700B21BE7 /* Main.storyboard */,
 				4D9AB8C9271E5C0700B21BE7 /* QMKagent.entitlements */,
 			);
 			path = QMKagent;
+			sourceTree = "<group>";
+		};
+		4D9AB8CF271E5C4B00B21BE7 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				4D9AB8D0271E5C4B00B21BE7 /* USBDeviceSwift */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		4D9AB8D1271E5C6100B21BE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +108,9 @@
 			dependencies = (
 			);
 			name = QMKagent;
+			packageProductDependencies = (
+				4D9AB8D2271E5C6100B21BE7 /* USBDeviceSwift */,
+			);
 			productName = QMKagent;
 			productReference = 4D9AB8BD271E5C0600B21BE7 /* QMKagent.app */;
 			productType = "com.apple.product-type.application";
@@ -119,7 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9AB8C5271E5C0700B21BE7 /* Assets.xcassets in Resources */,
+				4D9AB8D5271E68CA00B21BE7 /* Assets.xcassets in Resources */,
 				4D9AB8C8271E5C0700B21BE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9AB8C3271E5C0600B21BE7 /* ViewController.swift in Sources */,
+				4D7B5CD8271F8DC300414DA7 /* MediaApplication.swift in Sources */,
 				4D9AB8C1271E5C0600B21BE7 /* AppDelegate.swift in Sources */,
+				4D7B5CD6271F7F0200414DA7 /* QMKDevice.swift in Sources */,
+				4D7B5CD4271F74FF00414DA7 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,9 +312,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QMKagent/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSPrincipalClass = QMKagent.MediaApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -300,9 +338,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QMKagent/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSPrincipalClass = QMKagent.MediaApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -337,6 +376,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D9AB8D2271E5C6100B21BE7 /* USBDeviceSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = USBDeviceSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D9AB8B5271E5C0600B21BE7 /* Project object */;
 }
