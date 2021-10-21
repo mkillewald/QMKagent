@@ -35,7 +35,6 @@ class MediaApplication: NSApplication {
     func getSystemVolume() {
         AppDelegate.getSystemVolume()
         if self.previousVolume == 99.0 {
-            print("previousVolume inited")
             self.previousVolume = AppDelegate.volume
         }
     }

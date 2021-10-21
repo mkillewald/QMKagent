@@ -39,6 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.usbConnected), name: .HIDDeviceConnected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.usbDisconnected), name: .HIDDeviceDisconnected, object: nil)
         
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self, selector: #selector(onWakeNote(note:)),
+            name: NSWorkspace.didWakeNotification, object: nil)
+
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self, selector: #selector(onSleepNote(note:)),
+            name: NSWorkspace.willSleepNotification, object: nil)
+        
         // start Keychron Q1 daemon
         let keychronQ1Daemon = Thread(target: self.keychronQ1Monitor, selector:#selector(self.keychronQ1Monitor.start), object: nil)
         keychronQ1Daemon.start()
@@ -81,7 +89,7 @@ extension AppDelegate {
 }
 
 
-//MARK: USBDeviceSwift
+//MARK: handle usb connect/disconnect
 extension AppDelegate {
     static var connectedDevice:QMKDevice?
     
@@ -98,12 +106,7 @@ extension AppDelegate {
         
         AppDelegate.connectedDevice = device
         
-        AppDelegate.getSystemVolume()
-        if (AppDelegate.isMuted != 0) {
-            AppDelegate.connectedDevice?.sendRGBRange(r: 255, g: 0, b: 0, min: 0, max: UInt8(AppDelegate.volume * 12))
-        } else {
-            AppDelegate.connectedDevice?.sendRGBRange(r: 0, g: 255, b: 0, min: 0, max: UInt8(AppDelegate.volume * 12))
-        }
+        AppDelegate.initVolumRangeToDevice()
     }
     
     @objc func usbDisconnected(notification: NSNotification) {
@@ -117,6 +120,19 @@ extension AppDelegate {
         
         if (id == AppDelegate.connectedDevice?.deviceInfo.id) {
             AppDelegate.connectedDevice = nil
+        }
+    }
+}
+
+//MARK: handle sleep/wake
+extension AppDelegate  {
+    @objc func onWakeNote(note: NSNotification) {
+        AppDelegate.initVolumRangeToDevice()
+    }
+
+    @objc func onSleepNote(note: NSNotification) {
+        if AppDelegate.connectedDevice != nil {
+            AppDelegate.connectedDevice?.sendClear()
         }
     }
 }
@@ -175,5 +191,16 @@ extension AppDelegate {
             nil,
             &isMutedSize,
             &AppDelegate.isMuted)
+    }
+    
+    static func initVolumRangeToDevice() {
+        AppDelegate.getSystemVolume()
+        if AppDelegate.connectedDevice != nil {
+            if (AppDelegate.isMuted != 0) {
+                AppDelegate.connectedDevice?.sendRGBRange(r: 255, g: 0, b: 0, min: 0, max: UInt8(AppDelegate.volume * 12))
+            } else {
+                AppDelegate.connectedDevice?.sendRGBRange(r: 0, g: 255, b: 0, min: 0, max: UInt8(AppDelegate.volume * 12))
+            }
+        }
     }
 }
